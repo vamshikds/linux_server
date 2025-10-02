@@ -25,6 +25,16 @@ Linux Server Admin via Windows 11
         - To check its version type **`pwsh --verion`** in either Windows Powershell or in Windows Terminal or even in the terminal which opens when you run **`pwsh.exe`** in the windows search.
         - The version listed will be 7.5.x.
         - It is actively developed and built on .NET.
-
+3. Installing **SSH Key** to connect with VPS and your local laptop:
+    - **Ed25519** is modern, secure, fast and current defacto recommended cryptographic key type for OpenSSH and shorter and quicker than RSA key type.
+        - Run Dialog Box and press **Windows key + R** and type **`pwsh`** to open **PowerShell 7** or type **`powershell`** to open **Windows Powershell 5** 
+        - use command **`-t`** for selecting key type (select one of these **`ed25519`** or **`rsa`** or **`ecdsa`** or **`dsa`**) and
+        - use command **`-C`** for comment, the comment is only for your reference and not for security purpose.
+        - type this command and enter: **`ssh-keygen -t ed25519 -C "your comment"`**
+        - then it enter again to confirm the **.ssh folder** location, its best to keep the same and not to modify
+        - then it pops it asks to enter a **passphrase**, its recommended to generate one like your password and then enter
+        - then it generates the **key fingerprint** and **randomart image**
+        - 
+    
 
   
