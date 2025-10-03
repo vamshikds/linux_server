@@ -34,7 +34,6 @@ Linux Server Admin via Windows 11
         - then it enter again to confirm the **.ssh folder** location, its best to keep the same and not to modify
         - then it pops it asks to enter a **passphrase**, its recommended to generate one like your password and then enter
         - then it generates the **key fingerprint** and **randomart image**
-        - 
     
 
   
