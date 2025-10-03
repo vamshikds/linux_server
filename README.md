@@ -41,6 +41,9 @@ Linux Server Admin via Windows 11
             - **`ssh-keygen -t ed25519 -a 256 -C "your comment"`** this generates a ed25519 key with 256 KDF counts
             - **`ssh-keygen -t ed25519 -a 100 -f testkey100 -N "testpass" -C "benchmark100"`** this will generate a key with 100 KDF counts with a filename testkey100 with a passphrase of testpass and comment benchmark100
             - **`Mearsure-Command { ssh-keygen -y -f testkey100 }`** this will measure the time taken to unlock the public key from a private key using **`ssh-keygen -y`** command.
+    - to delete files via powershell:
+        - **`rm yourfilename`** then press enter
+        - before this check the number of files or sub-directories in your current directory by simple tying **`ls`** command and then enter.
     
 
   
