@@ -44,6 +44,7 @@ Linux Server Admin via Windows 11
     - to delete files via powershell:
         - **`rm yourfilename`** then press enter
         - before this check the number of files or sub-directories in your current directory by simple tying **`ls`** command and then enter.
+4. Connecting with the server
     
 
   
