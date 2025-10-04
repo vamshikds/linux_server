@@ -1,16 +1,15 @@
 # linux_server
 Linux Server Admin via Windows 11
 
-1. Go to terminal/command prompt by typing **`cmd`** in windows search or by clicking **`windows + R`** then entering **`cmd`** in the prompt.
-    - in the Windows Terminal type **`winget`** to check the version of windows package manager - The winget command line utility enables installing applications and other packages from the command line.
-    - WinGet (short for Windows Package Manager) is a free and open-source command-line package manager. It's a tool that allows one to easily discover, install, upgrade, and manage applications on the computer using simple text commands in the terminal.
-    - Command prompt of winget is: **`winget [<command>] [<options>]`**
+1. Go to terminal/command prompt by typing **`cmd`** in windows search or by clicking **`windows key + R`** then entering **`cmd`** in the prompt.
+    - Type **`winget`** in windows terminal to check the version of windows package manager - The **`winget`** command line utility enables installing applications and other packages from the command line. **WinGet** (short for Windows Package Manager) is a free and open-source command-line package manager. It's a tool that allows one to easily discover, install, upgrade, and manage applications on the computer using simple text commands in the terminal.
+    - Command prompt of **`winget`** is: **`winget [<command>] [<options>]`**
     - Search for Microsoft Powershell.
         - Type: **`winget search Microsoft.Powershell`**.
         - If prompted to agree to source terms, type **\<Y\>** to agree and continue.
         - Now install the powershell by typing: **`winget install --id Microsoft.PowerShell --source winget`**
         - It will install PowerShell.
-        - Exit the Windows Terminal by typing **`Exit`** and then press **[enter]**
+        - Exit the Windows Terminal by typing **`exit`** and then press enter.
 2. Now there will be two different, coexisting versions of PowerShells installed.
     -  **Windows PowerShell (Version 5.1):**
         -  This is the classic, built-in version of PowerShell that is pre-installed with Windows.
@@ -39,13 +38,18 @@ Linux Server Admin via Windows 11
             - KDF iterations means how difficult it is to get the key from your password. The purpose is to intentionally slow down brute-force attacks on your password, as an attacker would have to perform those 100 slow operations for every password guess.
             - to increase the KDF rounds we can use **`-a`** command and specifc the number of rounds like: **`ssh-keygen -t ed25519 -a 100`**, here the number of KDF rounds will be 100.
             - **`ssh-keygen -t ed25519 -a 256 -C "your comment"`** this generates a ed25519 key with 256 KDF counts
-            - **`ssh-keygen -t ed25519 -a 100 -f testkey100 -N "testpass" -C "benchmark100"`** this will generate a key with 100 KDF counts with a filename testkey100 with a passphrase of testpass and comment benchmark100
+            - **`ssh-keygen -t ed25519 -a 100 -f testkey100 -N "testpass" -C "benchmark100"`** this will generate a key with 100 KDF counts with a filename testkey100 with a passphrase of testpass and comment benchmark100.
             - **`Mearsure-Command { ssh-keygen -y -f testkey100 }`** this will measure the time taken to unlock the public key from a private key using **`ssh-keygen -y`** command.
     - to delete files via powershell:
         - **`rm yourfilename`** then press enter
         - before this check the number of files or sub-directories in your current directory by simple tying **`ls`** command and then enter.
 4. Connecting with the server:
-        - This is 
+    - Initial command:
+        - This command: **`ssh-keygen -t ed25519 -a 256 -C "my_laptop"`** this will generate ed25519 key with 256 rounds of KDF and with a comment for your reference as my_laptop.
+        - Then the powershell or your terminal will ask to give a file name, if you enter, this will be considered as its new file name, else it will generate SSH keys with file name as **id_ed25519** for private key and **ed_25519.pub** for public key.
+        - Then this proceeds further and asks for a **passphrase**, its like a password for your SSH Key. **ITS HIGHLY RECOMMENDED TO ENTER A VERY STRONG PASSPHRASE** to secure your connection even though you use your own machine or laptop to store these ssh keys.
+    - Ways to secure passwords or passphrase:
+    - A useful too to secure passwords is my using **KeePass** password manager which is safe and secure and completly in your local machine.
     
 
   
