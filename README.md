@@ -1,5 +1,5 @@
-# linux_server
-Linux Server Admin via Windows 11
+# linux_server via VPS
+Linux Server Admin via Windows 11 through vps by OVH Cloud
 
 1. Go to terminal/command prompt by typing **`cmd`** in windows search or by clicking **`windows key + R`** then entering **`cmd`** in the prompt.
     - Type **`winget`** in windows terminal to check the version of windows package manager - The **`winget`** command line utility enables installing applications and other packages from the command line. **WinGet** (short for Windows Package Manager) is a free and open-source command-line package manager. It's a tool that allows one to easily discover, install, upgrade, and manage applications on the computer using simple text commands in the terminal.
@@ -27,29 +27,41 @@ Linux Server Admin via Windows 11
 3. Installing **SSH Key** to connect with VPS and your local laptop:
     - **Ed25519** is modern, secure, fast and current defacto recommended cryptographic key type for OpenSSH and shorter and quicker than RSA key type.
         - Run Dialog Box and press **Windows key + R** and type **`pwsh`** to open **PowerShell 7** or type **`powershell`** to open **Windows Powershell 5** 
-        - use command **`-t`** for selecting key type (select one of these **`ed25519`** or **`rsa`** or **`ecdsa`** or **`dsa`**) and
-        - use command **`-C`** for comment, the comment is only for your reference and not for security purpose.
-        - type this command and enter: **`ssh-keygen -t ed25519 -C "your comment"`**
-        - then it enter again to confirm the **.ssh folder** location, its best to keep the same and not to modify
-        - then it pops it asks to enter a **passphrase**, its recommended to generate one like your password and then enter
-        - then it generates the **key fingerprint** and **randomart image**
+        - Use command **`-t`** for selecting key type (select one of these **`ed25519`** or **`rsa`** or **`ecdsa`** or **`dsa`**) and
+        - Use command **`-C`** for comment, the comment is only for your reference and not for security purpose.
+        - Type this command and enter: **`ssh-keygen -t ed25519 -C "your comment"`**
+        - Then it enter again to confirm the **.ssh folder** location, its best to keep the same and not to modify
+        - Then it pops it asks to enter a **passphrase**, its recommended to generate one like your password and then enter
+        - Then it generates the **key fingerprint** and **randomart image**
         - The default **Key Derivation Function (KDF)** rounds fore newer OpenSSH keys is often **16 rounds.**
             - A **Key Derivation Function (KDF)** is a cryptographic algorithm that acts like a highly specialized, ultra-secure recipe for turning one secret value into one or more new, stronger, and cryptographically safe secret keys.
             - KDF iterations means how difficult it is to get the key from your password. The purpose is to intentionally slow down brute-force attacks on your password, as an attacker would have to perform those 100 slow operations for every password guess.
-            - to increase the KDF rounds we can use **`-a`** command and specifc the number of rounds like: **`ssh-keygen -t ed25519 -a 100`**, here the number of KDF rounds will be 100.
+            - To increase the KDF rounds we can use **`-a`** command and specifc the number of rounds like: **`ssh-keygen -t ed25519 -a 100`**, here the number of KDF rounds will be 100.
             - **`ssh-keygen -t ed25519 -a 256 -C "your comment"`** this generates a ed25519 key with 256 KDF counts
             - **`ssh-keygen -t ed25519 -a 100 -f testkey100 -N "testpass" -C "benchmark100"`** this will generate a key with 100 KDF counts with a filename testkey100 with a passphrase of testpass and comment benchmark100.
             - **`Mearsure-Command { ssh-keygen -y -f testkey100 }`** this will measure the time taken to unlock the public key from a private key using **`ssh-keygen -y`** command.
-    - to delete files via powershell:
-        - **`rm yourfilename`** then press enter
+    - To delete files via powershell:
+        - Use this command **`rm yourfilename`** then press enter to delete files if you have created to test the benchmarking
         - before this check the number of files or sub-directories in your current directory by simple tying **`ls`** command and then enter.
-4. Connecting with the server:
     - Initial command:
         - This command: **`ssh-keygen -t ed25519 -a 256 -C "my_laptop"`** this will generate ed25519 key with 256 rounds of KDF and with a comment for your reference as my_laptop.
         - Then the powershell or your terminal will ask to give a file name, if you enter, this will be considered as its new file name, else it will generate SSH keys with file name as **id_ed25519** for private key and **ed_25519.pub** for public key.
         - Then this proceeds further and asks for a **passphrase**, its like a password for your SSH Key. **ITS HIGHLY RECOMMENDED TO ENTER A VERY STRONG PASSPHRASE** to secure your connection even though you use your own machine or laptop to store these ssh keys.
+        - now you will have two keys stored in your **.ssh** folder (hidden) in your home directory with names like **id_ed25519** and **id_ed25519.pub**.
+        - copy the contents of your public key, never share your private key.
+            - in the powershell use **`cat id_ed25519.pub`** command to view the contents of your public key, copy the entire key including that of your given comment and paste it in your vps.
     - Ways to secure passwords or passphrase:
-    - A useful too to secure passwords is my using **KeePass** password manager which is safe and secure and completly in your local machine.
+        - A useful too to secure passwords is my using **KeePass** password manager which is safe and secure and completly in your local machine.
+        - Download the latest version for windows.
+4. Connecting with the server:
+    - Initial steps:
+        - Connect with your VPS server through your laptop/local machine by entering the public ssh key into your vps control panel by reinstalling the OS.
+        - Wait for your vps service provider to confirm that the OS has been reinstalled with your public SSH.
+        - Next, go to Powershell and enter **`ssh your_username@your_ipv4`**, then it will ask you to confirm if you want to connect with this new IP, type **`yes`**. Then it will ask you to enter the **passphrase** of your SSH key, enter it.
+        - Next, It will ask you to change the password immediately, do it by entering the existing password and entering the new one.
+        - Next, it will close the connection to your ipv4.
+        - Now, re-enter **`ssh your_username@ipv4`** and then your passphrase for the SSH Key.
+        - Now, you are successfully connected with the your server.
     
 
   
