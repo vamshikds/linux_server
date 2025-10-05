@@ -1,5 +1,5 @@
 # linux_server via VPS
-Linux Server Admin via Windows 11 through vps by OVH Cloud
+Linux Server Admin via Windows 11 through vps
 
 1. Go to terminal/command prompt by typing **`cmd`** in windows search or by clicking **`windows key + R`** then entering **`cmd`** in the prompt.
     - Type **`winget`** in windows terminal to check the version of windows package manager - The **`winget`** command line utility enables installing applications and other packages from the command line. **WinGet** (short for Windows Package Manager) is a free and open-source command-line package manager. It's a tool that allows one to easily discover, install, upgrade, and manage applications on the computer using simple text commands in the terminal.
@@ -62,6 +62,12 @@ Linux Server Admin via Windows 11 through vps by OVH Cloud
         - Next, it will close the connection to your ipv4.
         - Now, re-enter **`ssh your_username@ipv4`** and then your passphrase for the SSH Key.
         - Now, you are successfully connected with the your server.
-    
-
-  
+    - To check your userID details:
+        - Type **`id`** to get initial details
+        - Type **`id -gn`** to check the user groupID name
+        - Type **`id -un`** to check the user name without **`-n`** it will give only the id number
+        - Type **`id -Gn`** to check all the groups in which the user is allowed in
+        - Type **`sudo -l`** if your user is allowed to run the **`sudo`** command or
+        - Type **`sudo whoami`** to check if you have sudo access. **`whoami`** is simply **Who Am I**, it tells the user is what, if the user has sudo access it tells otherwise it says the user is not in the sudoers file.
+        - Type **`whoami`** to get your username.
+        - Type **`sudo su username`** to switch to another userid - can do it only when the current user is part of sudoers group. Else type **`exit`** to exit a subuser and get into original sudo user account.
