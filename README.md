@@ -1,7 +1,8 @@
 # linux_server via VPS
 Linux Server Admin via Windows 11 through vps
 
-1. Go to terminal/command prompt by typing **`cmd`** in windows search or by clicking **`windows key + R`** then entering **`cmd`** in the prompt.
+1. ## Very first steps:
+    - Go to terminal/command prompt by typing **`cmd`** in windows search or by clicking **`Windows key + R`** then entering **`cmd`** in the prompt.
     - Type **`winget`** in windows terminal to check the version of windows package manager - The **`winget`** command line utility enables installing applications and other packages from the command line. **WinGet** (short for Windows Package Manager) is a free and open-source command-line package manager. It's a tool that allows one to easily discover, install, upgrade, and manage applications on the computer using simple text commands in the terminal.
     - Command prompt of **`winget`** is: **`winget [<command>] [<options>]`**
     - Search for Microsoft Powershell.
@@ -10,7 +11,8 @@ Linux Server Admin via Windows 11 through vps
         - Now install the powershell by typing: **`winget install --id Microsoft.PowerShell --source winget`**
         - It will install PowerShell.
         - Exit the Windows Terminal by typing **`exit`** and then press enter.
-2. Now there will be two different, coexisting versions of PowerShells installed.
+2. ## Powershell
+    - Now there will be two different, coexisting versions of PowerShells installed.
     -  **Windows PowerShell (Version 5.1):**
         -  This is the classic, built-in version of PowerShell that is pre-installed with Windows.
         -  The executable name is **`powershell.exe`**. When you type **"PowerShell"** or **`powershell.exe`** in the windows search, you are starting this version.
@@ -21,10 +23,10 @@ Linux Server Admin via Windows 11 through vps
         - This is the modern, cross-platform version you installed using **`winget`** (version 7.5.x.x).
         - the executable name is **`pwsh.exe`**. To start this version simply type this in the windows search.
         - It installs side-by-side with Windows PowerShell 5.1, it does not replace it.
-        - To check its version type **`pwsh --verion`** in either Windows Powershell or in Windows Terminal or even in the terminal which opens when you run **`pwsh.exe`** in the windows search.
+        - To check its version type **`pwsh --version`** in either Windows Powershell or in Windows Terminal or even in the terminal which opens when you run **`pwsh.exe`** in the windows search.
         - The version listed will be 7.5.x.
         - It is actively developed and built on .NET.
-3. Installing **SSH Key** to connect with VPS and your local laptop:
+3. ## Installing **SSH Key** to connect with VPS and your local laptop:
     - **Ed25519** is modern, secure, fast and current defacto recommended cryptographic key type for OpenSSH and shorter and quicker than RSA key type.
         - Run Dialog Box and press **Windows key + R** and type **`pwsh`** to open **PowerShell 7** or type **`powershell`** to open **Windows Powershell 5** 
         - Use command **`-t`** for selecting key type (select one of these **`ed25519`** or **`rsa`** or **`ecdsa`** or **`dsa`**) and
@@ -53,7 +55,7 @@ Linux Server Admin via Windows 11 through vps
     - Ways to secure passwords or passphrase:
         - A useful too to secure passwords is my using **KeePass** password manager which is safe and secure and completly in your local machine.
         - Download the latest version for windows.
-4. Connecting with the server:
+4. ## Connecting with the server:
     - Initial steps:
         - Connect with your VPS server through your laptop/local machine by entering the public ssh key into your vps control panel by reinstalling the OS.
         - Wait for your vps service provider to confirm that the OS has been reinstalled with your public SSH.
@@ -68,6 +70,10 @@ Linux Server Admin via Windows 11 through vps
         - Type **`id -un`** to check the user name without **`-n`** it will give only the id number
         - Type **`id -Gn`** to check all the groups in which the user is allowed in
         - Type **`sudo -l`** if your user is allowed to run the **`sudo`** command or
-        - Type **`sudo whoami`** to check if you have sudo access. **`whoami`** is simply **Who Am I**, it tells the user is what, if the user has sudo access it tells otherwise it says the user is not in the sudoers file.
+        - Type **`sudo whoami`** to check if you have root access. **`whoami`** is simply **Who Am I**, it tells the user is what, if the user has sudo access it tells otherwise it says the user is not in the sudoers file.
         - Type **`whoami`** to get your username.
         - Type **`sudo su username`** to switch to another userid - can do it only when the current user is part of sudoers group. Else type **`exit`** to exit a subuser and get into original sudo user account.
+5. ## Server user management:
+    - **`sudo`** user is one who is with **`root privileges`**
+    - Use **`sudo adduser username`** to create a **`normal user`**, enter your choice of username (its best to create users with no root access and specific to an application only, so that the files are not accidently deleted).
+    - 
