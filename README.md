@@ -39,7 +39,7 @@ Linux Server Admin via Windows 11 through vps
             - A **Key Derivation Function (KDF)** is a cryptographic algorithm that acts like a highly specialized, ultra-secure recipe for turning one secret value into one or more new, stronger, and cryptographically safe secret keys.
             - KDF iterations means how difficult it is to get the key from your password. The purpose is to intentionally slow down brute-force attacks on your password, as an attacker would have to perform those 100 slow operations for every password guess.
             - To increase the KDF rounds we can use **`-a`** command and specifc the number of rounds like: **`ssh-keygen -t ed25519 -a 100`**, here the number of KDF rounds will be 100.
-            - ```**`ssh-keygen -t ed25519 -a 256 -C "your comment"`**``` this generates a ed25519 key with 256 KDF counts
+            - **`ssh-keygen -t ed25519 -a 256 -C "your comment"`** this generates a ed25519 key with 256 KDF counts
             - **`ssh-keygen -t ed25519 -a 100 -f testkey100 -N "testpass" -C "benchmark100"`** this will generate a key with 100 KDF counts with a filename testkey100 with a passphrase of testpass and comment benchmark100.
             - **`Mearsure-Command { ssh-keygen -y -f testkey100 }`** this will measure the time taken to unlock the public key from a private key using **`ssh-keygen -y`** command.
     - To delete files via powershell:
@@ -76,4 +76,4 @@ Linux Server Admin via Windows 11 through vps
 5. ## Server user management:
     - **`sudo`** user is one who is with **`root privileges`**
     - Use **`sudo adduser username`** to create a **`normal user`**, enter your choice of username (its best to create users with no root access and specific to an application only, so that the files are not accidently deleted).
-    - To create user password type this command 
+    - To create user password type this command:
