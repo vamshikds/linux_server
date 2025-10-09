@@ -1,5 +1,5 @@
 # linux_server via VPS
-Linux Server Admin via Windows 11 through vps
+Linux Server Admin via Windows 11 through vps (OVH Cloud)
 
 1. ## Very first steps:
     - Go to terminal/command prompt by typing **`cmd`** in windows search or by clicking **`Windows key + R`** then entering **`cmd`** in the prompt.
