@@ -1,4 +1,4 @@
-# linux_server via VPS (via OVH Cloud)
+# linux_server via VPS
 Linux Server Admin via Windows 11 through vps (any VPS service provider)
 
 1. ## Very first steps:
