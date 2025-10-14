@@ -1,4 +1,4 @@
-# linux_server via VPS
+# linux_server
 Linux Server Admin via Windows 11 through vps (any VPS service provider)
 
 1. ## Very first steps:
